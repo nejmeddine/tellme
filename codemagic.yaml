@@ -8,18 +8,12 @@ workflows:
       - name: Set up local.properties
         script: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
-<<<<<<< HEAD
-      - name: Install Gradle
-        script: |
-          brew install gradle
-=======
       - name: Install Gradle 8.0
         script: |
           curl -L https://services.gradle.org/distributions/gradle-8.0-bin.zip -o /tmp/gradle.zip
           unzip -q /tmp/gradle.zip -d /tmp/gradle-install
           export PATH="/tmp/gradle-install/gradle-8.0/bin:$PATH"
           gradle --version
->>>>>>> 3465d5d (2 - Add gradle wrapper files)
       - name: Build APK debug
         script: |
           export PATH="/tmp/gradle-install/gradle-8.0/bin:$PATH"
