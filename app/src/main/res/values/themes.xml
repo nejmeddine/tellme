@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.BoxMonitor" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#6c63ff</item>
+        <item name="colorPrimaryVariant">#4a42cc</item>
+        <item name="colorOnPrimary">#ffffff</item>
+        <item name="colorSecondary">#00d4aa</item>
+        <item name="android:windowBackground">#1a1a2e</item>
+    </style>
+</resources>
