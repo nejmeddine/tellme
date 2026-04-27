@@ -8,17 +8,12 @@ workflows:
       - name: Set up local.properties
         script: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
-      - name: Download Gradle Wrapper JAR
+      - name: Install Gradle
         script: |
-          cd $CM_BUILD_DIR
-          curl -L "https://services.gradle.org/distributions/gradle-8.0-bin.zip" -o gradle.zip
-          unzip -q gradle.zip
-          cp gradle-8.0/lib/gradle-wrapper*.jar gradle/wrapper/gradle-wrapper.jar 2>/dev/null || \
-          find gradle-8.0 -name "gradle-wrapper.jar" -exec cp {} gradle/wrapper/gradle-wrapper.jar \;
+          brew install gradle
       - name: Build APK debug
         script: |
           cd $CM_BUILD_DIR
-          chmod +x gradlew
-          ./gradlew assembleDebug
+          gradle assembleDebug
     artifacts:
       - app/build/outputs/**/*.apk
